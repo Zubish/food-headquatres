@@ -288,7 +288,7 @@ function Logo({ inverted = false }: { inverted?: boolean }) {
         <span className="text-accent">Food</span>{" "}
         <span className={inverted ? "text-fresh" : "text-brand-green"}>Headquarters</span>
       </div>
-      <div className={inverted ? "mt-1 text-[10px] uppercase tracking-widest text-primary-foreground/60" : "mt-1 text-[10px] uppercase tracking-widest text-muted-foreground"}>
+      <div className={inverted ? "mt-1 text-[10px] uppercase tracking-widest text-primary-foreground/85" : "mt-1 text-[10px] uppercase tracking-widest text-muted-foreground"}>
         Experience Great Taste
       </div>
     </div>
@@ -370,11 +370,8 @@ function Landing() {
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled || navOpen ? "bg-background/92 backdrop-blur-lg shadow-elev1" : "bg-transparent"}`}
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6">
-          <a href="#home" className="flex items-center gap-3" aria-label="Food Headquarters home">
-            <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-charcoal shadow-elev2 ring-1 ring-primary-foreground/10">
-              <Flame className="size-5 text-accent" />
-            </div>
-            <Logo />
+          <a href="#home" className="flex items-center" aria-label="Food Headquarters home">
+            <Logo inverted={!scrolled && !navOpen} />
           </a>
 
           <div className="hidden items-center gap-1 lg:flex">
@@ -404,12 +401,6 @@ function Landing() {
                 </span>
               )}
             </button>
-            <a
-              href="#menu"
-              className="hidden items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-elev2 transition hover:-translate-y-0.5 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-ring sm:inline-flex"
-            >
-              <ShoppingBag className="size-4" /> Order Now
-            </a>
             <button
               type="button"
               onClick={() => setNavOpen(!navOpen)}
@@ -456,7 +447,6 @@ function Landing() {
               <span className="size-2 rounded-full bg-fresh animate-pulse" /> Open today · 7AM - 10PM
             </span>
             <div className="space-y-2">
-              <Logo inverted />
               <h1 className="text-4xl font-black leading-[1.05] text-balance sm:text-6xl lg:text-7xl">
                 Experience
                 <br />
@@ -473,15 +463,8 @@ function Landing() {
                 href="#menu"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-bold text-primary-foreground shadow-glow transition hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-foreground"
               >
-                <ShoppingBag className="size-5" /> Start Order <ArrowRight className="size-4" />
+                <ShoppingBag className="size-5" /> Order Now <ArrowRight className="size-4" />
               </a>
-              <button
-                type="button"
-                onClick={() => setCartOpen(true)}
-                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-6 py-3.5 font-bold backdrop-blur-md transition hover:bg-primary-foreground/20 focus:outline-none focus:ring-2 focus:ring-primary-foreground"
-              >
-                View Cart
-              </button>
             </div>
 
             <div className="flex flex-wrap items-center gap-5 pt-6 text-sm">
